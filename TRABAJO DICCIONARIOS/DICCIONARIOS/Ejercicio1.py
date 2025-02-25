@@ -1,3 +1,4 @@
+# Diccionario con tasas de cambio
 monedas = {
     'Euro': 4444,
     'Dollar': 4422,
@@ -14,15 +15,10 @@ monedas = {
 # Solicitar divisa al usuario
 divisa = input("Ingrese el nombre de la divisa: ").strip()
 
-if divisa in monedas:
-    tasa_cambio = monedas[divisa]
-    print(f"1 {divisa} equivale a {tasa_cambio} pesos colombianos")
-    
-    try:
-        cantidad = float(input("Ingrese la cantidad a convertir: "))
-        conversion = cantidad * tasa_cambio
-        print(f"{cantidad} {divisa} equivalen a {conversion} pesos colombianos")
-    except ValueError:
-        print("Error: Debe ingresar un número válido")
+# Verificar si la divisa está en el diccionario
+if divisa in monedas :
+    cantidad = float(input(f"Ingrese la cantidad de {divisa} a convertir: "))
+    conversion = cantidad * monedas[divisa]
+    print(f"{cantidad} {divisa} equivale a {conversion} pesos colombianos.")
 else:
-      print("La divisa ingresada no está en la lista")
+    print("La divisa ingresada no está en el diccionario.")
